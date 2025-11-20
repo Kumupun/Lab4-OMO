@@ -1,12 +1,9 @@
 import numpy as np
 
 def roots_for(L,domain):
-    res = np.roots(L.coef)
-
-    res_in = [r for r in res if domain[0] <= r <= domain[1]]
-    if len(res_in) == 0 :
-        return None
-    return res
+    res = L.roots() 
+    res_real = res[np.isreal(res)].real
+    return res_real
 
 def roots_back(L):
     res = L(0)

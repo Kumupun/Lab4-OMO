@@ -22,13 +22,14 @@ def main():
         print(result[0])
         print(tc.colored(f"The error bound R is: {result[1]}", "green"))
         rootx = root.roots_for(result[0], domain_input)
-        if rootx is not None:
+        if [r for r in rootx if domain_input[0] <= r <= domain_input[1]]:
             print(f"Roots of the Lagrange Interpolating Polynomial in the given domain: \n{rootx}")
         else:
-            print("There are no roots in the given domain.")
+            print("The roots of the Lagrange Interpolating Polynomial are outside the given domain.")
+            print(f"Roots: \n{rootx}")
         L_inv = lagr.Lagrange_inv(nodes, coef_input)
         rooty = root.roots_back(L_inv)
-        if rooty is not None:
+        if rooty is not None or len(rooty) > 0:
             print(f"Roots of the Inverse Lagrange Polynomial: \n{rooty}")
         else:
             print("The Inverse Lagrange Polynomial has no roots.")
