@@ -28,14 +28,10 @@ def main():
             print("There are no roots in the given domain.")
         L_inv = lagr.Lagrange_inv(nodes, coef_input)
         rooty = root.roots_back(L_inv)
-
         if rooty is not None:
-            print("Roots of the Inverse Lagrange Interpolating Polynomial:")
-            for r in rooty:
-                print(f"{r.real}")
+            print(f"Roots of the Inverse Lagrange Polynomial: \n{rooty}")
         else:
-            print("There are no roots of the Inverse Lagrange Interpolating Polynomial.")
-
+            print("The Inverse Lagrange Polynomial has no roots.")
     except Exception as e:
         print(tc.colored(f"An error occurred: {e}", "red"))
     return 0

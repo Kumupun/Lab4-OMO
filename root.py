@@ -9,9 +9,8 @@ def roots_for(L,domain):
     return res
 
 def roots_back(L):
-    res = np.roots(L.coef)
-    if all(res)==None:
+    res = L(0)
+    if res==None:
         print("The resulting inverse polynomial has no roots.")
-
     return res
     
